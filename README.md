@@ -6,5 +6,7 @@ the code uses these libraries and frameworks to achieve this:
 <li><b>Time</b> to get the timestamp epoch and set delays of 60 seconds between each read</li>
 <li><b>SQlite3:</b> to store the data and recover once needed</li>
 </ul>
-use the record.py to make the database or add more data to it
-use the Start.cmd to initiate the API
+
+use the <b>record.py</b> to make the database or add more data to it
+
+use the <b>Start.cmd</b> to initiate the API
