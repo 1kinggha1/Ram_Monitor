@@ -34,11 +34,13 @@ cur.execute('''
 
 #Insert Data Inside the Respective Columns.
 while True:
+    #just to make sure that the time difference is always approximately 5 seconds
+    start=time()
     cur.execute('''
         INSERT INTO system_ram (timestamp, total, free, used)
         VALUES (?,?, ?, ?)
     ''', System_Ram_Update())
     DataBase.commit()
-    #the loop never closes but has a 60 pause to it
-    sleep(60)
+    end=time()
+    sleep(60-(end-start))
 cur.close()
