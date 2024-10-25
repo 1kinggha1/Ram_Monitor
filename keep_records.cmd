@@ -1,3 +1,3 @@
 @echo off
-python function.py
+python record.py
 cmd /k
