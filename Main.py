@@ -28,3 +28,4 @@ def present(item_id :int = 1):
         one_set="internal server error"
     finally:
         return one_set
+        curs.close()
