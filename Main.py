@@ -17,29 +17,30 @@ def null_adress():
     return "please add /n at the end of the Url (n being the number of the records)"
 @Ram_Api.get("/{item_id}")
 def present(item_id :int = 1):
-    data=sqlite3.connect("DataBase.db")
-    curs=data.cursor()
+    Data=sqlite3.connect("DataBase.db")
+    curs=Data.cursor()
     #use f string to insert the numbers
     try:
         curs.execute(f"""
         SELECT * FROM system_ram
         ORDER BY timestamp DESC
         LIMIT {item_id}""")
-        one_set = curs.fetchall()
+        Raw_data = curs.fetchall()
         l=["timestamp","total","free","used"]
-        js=[{} for i in range(item_id)]
-        for i in range(len(js)):
-            js[i]=dict(zip(l,one_set[i]))
+        Formatted_data=[{} for i in range(item_id)]
+        for i in range(len(Formatted_data)):
+            Formatted_data[i]=dict(zip(l,Raw_data[i]))
     except:
         #error handling
         curs.execute("SELECT COUNT(*) FROM system_ram")
         count = curs.fetchone()[0]
         if item_id>count:
             # only show available data
-            js.insert(0,f"we only have {count} record:")
+            Formatted_data.insert(0,f"we only have {count} record:")
+            Formatted_data=Formatted_data[0:count+1]
         else:
             #unknown error
-            js="There might be an internal error"
+            Formatted_data="There might be an internal error"
     finally:
             #finally, send out the data
-        return js
+        return Formatted_data
