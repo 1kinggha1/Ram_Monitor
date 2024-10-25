@@ -2,15 +2,12 @@
 $python -m uvicorn Main:Ram_Api --reload
 to run the main program and activate the API
 """
-#Need the fastApi to make the api
+#Need the fastApi to make the API
 from fastapi import FastAPI
-
-#to start recording the data 
-#from subprocess import Popen,run
 
 #bring sqlite3 to the app
 import sqlite3
-#create the api and the get method of it
+#create the API and the get method of it
 Ram_Api= FastAPI()
 @Ram_Api.get("/{item_id}")
 def present(item_id :int = 1):
