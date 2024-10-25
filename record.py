@@ -1,4 +1,4 @@
-# import The sqlite3 Framework To keep Record
+# Import the sqlite3 Framework To Keep the Record
 import sqlite3
 
 #Needs To Be Installed, Tells How Much Of The Ram Is Total Or Free Or Taken, Highly Compatible With A Lot Of Os Like Linux
@@ -18,8 +18,10 @@ def System_Ram_Update():
             ,Ram().used//1024**2]
 
 #Create A sqlite3 DataBase And Add The Columns To It, Setting The Epoch Time As The Primary Key.
+#if it already exists connect to it
 DataBase = sqlite3.connect("DataBase.db")
 cur=DataBase.cursor()
+#if the table does not exist already, make one
 cur.execute('''
     CREATE TABLE IF NOT EXISTs system_ram (
         timestamp INTEGER PRIMARY KEY,
@@ -37,6 +39,6 @@ while True:
         VALUES (?,?, ?, ?)
     ''', System_Ram_Update())
     DataBase.commit()
-    # during the development we'll use 1 second delays
-    sleep(1)
+    #the loop never closes but has a 60 pause to it
+    sleep(60)
 cur.close()
