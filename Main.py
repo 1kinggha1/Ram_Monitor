@@ -44,3 +44,4 @@ def present(item_id :int = 1):
     finally:
             #finally, send out the data
         return Formatted_data
+        curs.close()
