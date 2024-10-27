@@ -42,5 +42,6 @@ def present(item_id :int = 1):
             Formatted_data="There might be an internal error"
     finally:
             #finally, send out the data
-        return Formatted_data
-        curs.close()
+            curs.close()
+            Data.close()
+            return Formatted_data
