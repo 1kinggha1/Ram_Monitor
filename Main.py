@@ -2,12 +2,11 @@
 $python -m uvicorn Main:Ram_Api --reload
 to run the main program and activate the API
 """
+import uvicorn
 #Need the fastApi to make the api
 from fastapi import FastAPI
-
-#to start recording the data 
+#to start recording the data
 #from subprocess import Popen,run
-
 #bring sqlite3 to the app
 import sqlite3
 #create the api and the get method of it
