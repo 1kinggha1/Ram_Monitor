@@ -43,4 +43,3 @@ while True:
     DataBase.commit()
     end=time()
     sleep(60-(end-start))
-cur.close()
