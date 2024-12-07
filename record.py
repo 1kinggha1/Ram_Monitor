@@ -34,7 +34,7 @@ cur.execute('''
 
 #Insert Data Inside the Respective Columns.
 while True:
-    #just to make sure that the time difference is always approximately 5 seconds
+    #just to make sure that the time difference is always approximately 60 seconds
     start=time()
     cur.execute('''
         INSERT INTO system_ram (timestamp, total, free, used)
